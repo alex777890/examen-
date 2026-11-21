@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1976d2" />
+  <meta name="description" content="SportSchool - Seguimiento y desempeño deportivo escolar" />
+  <title>SportSchool</title>
+  <link rel="icon" href="/pwa-192x192.png" />
+  <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- ===== SPLASH ===== -->
+  <div id="splash" class="splash">
+    <h1>SportSchool</h1>
+    <p>Cargando…</p>
+  </div>
+
+  <!-- ===== HOME ===== -->
+  <main id="home" class="home hidden">
+    <header>
+      <h1>SportSchool</h1>
+      <p>Seguimiento y desempeño deportivo escolar</p>
+    </header>
+
+    <!-- Formulario de estudiante -->
+    <section>
+      <h2>Registrar estudiante</h2>
+      <form id="form-estudiante">
+        <input name="nombre" placeholder="Nombre completo" required />
+        <input name="grupo" placeholder="Grupo (ej. 3A)" required />
+        <input name="disciplina" placeholder="Disciplina deportiva" required />
+        <button type="submit">Guardar estudiante</button>
+      </form>
+    </section>
+
+    <!-- Formulario de actividad -->
+    <section>
+      <h2>Registrar actividad</h2>
+      <form id="form-actividad">
+        <select name="estudianteId" id="select-estudiante" required></select>
+        <input name="fecha" type="date" required />
+        <input name="actividad" placeholder="Actividad (ej. Carrera 100m)" required />
+        <input name="duracion" type="number" min="0" placeholder="Duración (min)" required />
+        <input name="distancia" type="number" step="0.01" min="0" placeholder="Distancia (km)" required />
+        <textarea name="observaciones" placeholder="Observaciones (opcional)"></textarea>
+        <button type="submit">Guardar actividad</button>
+        <button type="button" id="btn-ubicacion">Añadir ubicación</button>
+        <span id="estado-ubicacion"></span>
+      </form>
+    </section>
+
+    <!-- Historial e indicadores -->
+    <section>
+      <h2>Indicadores de desempeño</h2>
+      <div id="indicadores"></div>
+    </section>
+    <!-- Historial e indicadores -->
+    <section>
+      <h2>Indicadores de desempeño</h2>
+      <div id="indicadores"></div>
+      
+      <!-- NUEVO BOTÓN PARA NOTIFICACIONES -->
+      <div style="margin-top: 1rem;">
+        <button type="button" id="btn-notificaciones">🔔 Activar notificaciones</button>
+        <span id="estado-notificaciones"></span>
+      </div>
+    </section>
+    <section>
+      <h2>Historial deportivo</h2>
+      <table id="tabla-historial">
+        <thead>
+          <tr>
+            <th>Estudiante</th>
+            <th>Fecha</th>
+            <th>Actividad</th>
+            <th>Duración (min)</th>
+            <th>Distancia (km)</th>
+            <th>Observaciones</th>
+            <th>Ubicación</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="mensaje-vacio">Aún no hay actividades registradas.</p>
+    </section>
+
+    <!-- Fetch demostrativo -->
+    <section>
+      <h2>Datos remotos (Fetch API)</h2>
+      <p>Prueba demostrativa de envío a un endpoint público (JSONPlaceholder). No hay backend propio.</p>
+      <button id="btn-fetch">Probar Fetch</button>
+      <pre id="salida-fetch"></pre>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
